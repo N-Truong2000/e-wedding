@@ -1,0 +1,682 @@
+/* TOÀN BỘ CSS THIẾT KẾ THEO TÔNG VÀNG GOLD - ĐEN LUXURY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a;
+    /* Nền ngoài tối sẫm để bật sắc vàng gold */
+    color: #333333;
+    overflow-x: hidden;
+}
+
+/* HIỆU ỨNG CÁNH CỔNG TRƯỢT SANG 2 BÊN */
+.wedding-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    overflow: hidden;
+    transition: visibility 1.2s;
+}
+
+.gate {
+    width: 50%;
+    height: 100%;
+    background-color: #262626;
+    /* Cánh cổng kim loại xám đen nhám quý phái */
+    transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+    position: absolute;
+    top: 0;
+}
+
+.gate-left {
+    left: 0;
+    border-right: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.gate-right {
+    right: 0;
+    border-left: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.cover-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #d4af37;
+    /* Sắc vàng gold chủ đạo */
+    z-index: 1000;
+    width: 100%;
+    transition: opacity 0.5s;
+}
+
+.top-decor-icon svg {
+    width: 50px;
+    height: 50px;
+    fill: #d4af37;
+    margin-bottom: 15px;
+}
+
+.save-the-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #d4af37;
+}
+
+.save-the-date span {
+    font-style: italic;
+    text-transform: lowercase;
+}
+
+.tap-instruction {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.heart-btn {
+    background: #d4af37;
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.heart-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #1a1a1a;
+    animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.wedding-cover.opened .gate-left {
+    transform: translateX(-100%);
+}
+
+.wedding-cover.opened .gate-right {
+    transform: translateX(100%);
+}
+
+.wedding-cover.opened .cover-content {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wedding-cover.opened {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* CONTAINER KHUNG MÀN HÌNH DI ĐỘNG */
+.wedding-content {
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+}
+
+body.content-show {
+    overflow-y: scroll;
+}
+
+body.content-show .wedding-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section {
+    padding: 35px 20px;
+    text-align: center;
+}
+
+/* BLOCK 1: HERO FULLSCREEN TRÀN MÀN HÌNH */
+.hero-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 !important;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.hero-text-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 25px;
+    width: 100%;
+}
+
+.hero-subtitle-top {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-couple-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-couple-title span {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3.2rem;
+    color: #ffffff;
+    margin: 0 4px;
+}
+
+.hero-quote-p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.5;
+    max-width: 340px;
+    margin: 15px auto 25px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-date-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.hero-date-badge .line {
+    width: 40px;
+    height: 1px;
+    background-color: rgba(212, 175, 55, 0.6);
+}
+
+.hero-date-badge .date-txt {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #d4af37;
+    letter-spacing: 2px;
+}
+
+.hero-bottom-p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* BLOCK 2: CHI TIẾT THỜI GIAN ĐỊA CHỈ & GIA ĐÌNH SÁT BIÊN */
+.details-section {
+    background-color: #faf8f5;
+    border-top: 1px solid #f0eae0;
+}
+
+.datetime-grid {
+    display: flex;
+    border-bottom: 1px dashed #d4af37;
+    padding-bottom: 20px;
+}
+
+.dt-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dt-box:first-child {
+    border-right: 1px dashed #d4af37;
+}
+
+.dt-label {
+    font-size: 0.7rem;
+    color: #999999;
+    letter-spacing: 1px;
+}
+
+.dt-value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #d4af37;
+    margin: 4px 0;
+}
+
+.dt-sub {
+    font-size: 0.65rem;
+    color: #bbb;
+    padding: 0 10px;
+}
+
+.venue-box {
+    padding: 20px 0 10px 0;
+}
+
+.venue-title {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.venue-address {
+    font-size: 0.8rem;
+    color: #333333;
+    /* Chữ địa chỉ được chỉnh tối đậm rõ nét, sáng phông nền */
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* CẤU TRÚC ĐẨY SÁT RÌA HAI BÊN CHO KHỐI GIA ĐÌNH */
+.family-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    margin: 25px 0;
+    padding: 0 15px;
+    /* Thụt nhẹ 15px tinh tế tránh dính viền màn hình */
+}
+
+.family-side {
+    width: 48%;
+}
+
+.family-info-container .family-side:first-child {
+    text-align: left;
+    /* Nhà Trai kịch biên trái */
+}
+
+.family-info-container .family-side:last-child {
+    text-align: right;
+    /* Nhà Gái kịch biên phải */
+}
+
+.family-side h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #d4af37;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.family-side p {
+    font-size: 0.8rem;
+    color: #555555;
+    line-height: 1.5;
+    margin: 2px 0;
+}
+
+.banner-photo {
+    margin-top: 25px;
+    position: relative;
+}
+
+.banner-photo img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+.banner-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-top: 6px;
+    color: #bc9c6c;
+    letter-spacing: 1px;
+}
+
+/* BLOCK 3: SƠ ĐỒ TIMELINE CANH GIỮA TUYỆT ĐỐI */
+.v-timeline {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 30px;
+}
+
+.v-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    /* Trục line đứng chuẩn xác ở giữa */
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background: #e8dfcd;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.tl-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.tl-icon-box {
+    width: 45px;
+    height: 45px;
+    background: #fffcf5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d4af37;
+    margin-bottom: 10px;
+}
+
+.tl-icon-box svg {
+    width: 22px;
+    height: 22px;
+    fill: #d4af37;
+}
+
+.tl-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    /* Nền trắng đè lên line trục dọc phía sau */
+    padding: 5px 15px;
+}
+
+.tl-time {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #bc9c6c;
+    margin-bottom: 4px;
+}
+
+.tl-text h4 {
+    font-size: 0.95rem;
+    color: #333333;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.couple-run-photo img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* BLOCK 4: PROFILE CÔ DÂU CHÚ RỂ */
+.profiles-section {
+    background-color: #fdfcf9;
+}
+
+.story-card {
+    display: flex;
+    background: white;
+    border: 1px solid #f0eae0;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.story-img {
+    width: 35%;
+    height: 150px;
+}
+
+.story-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-body {
+    width: 65%;
+    padding: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.story-role {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #bc9c6c;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.story-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #bc9c6c;
+    margin: 2px 0 6px;
+}
+
+.story-quote {
+    font-size: 0.7rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.story-author {
+    font-size: 0.6rem;
+    color: #aaa;
+    text-align: right;
+    display: block;
+    margin-top: 5px;
+}
+
+.story-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.story-card.reverse .story-body {
+    text-align: right;
+}
+
+.story-card.reverse .story-author {
+    text-align: left;
+}
+
+/* --- GIAO DIỆN MẶC ĐỊNH CHO ĐIỆN THOẠI (XẾP THÀNH 3 HÀNG CHÍNH GIỮA) --- */
+.hero-couple-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    /* Cỡ chữ lớn trên mobile */
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    /* Ép các phần tử con xếp thành hàng dọc */
+    align-items: center;
+    /* Căn giữa tuyệt đối cả 3 hàng */
+    gap: 5px;
+    /* Khoảng cách nhỏ giữa các hàng */
+}
+
+/* Định dạng riêng cho ký tự & nằm ở hàng giữa */
+.hero-couple-title .couple-ampersand {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3rem;
+    color: #d4af37;
+    /* Giữ sắc vàng gold tạo điểm nhấn tinh tế ở giữa */
+}
+
+
+/* --- GIAO DIỆN DÀNH CHO MÁY TÍNH / LAPTOP (TỰ ĐỘNG THU VỀ 1 HÀNG NGANG) --- */
+@media (min-width: 769px) {
+    .hero-couple-title {
+        flex-direction: row;
+        /* Chuyển lại thành hàng ngang khi màn hình rộng */
+        justify-content: center;
+        /* Căn giữa hàng ngang */
+        gap: 15px;
+        /* Khoảng cách giữa chữ và ký tự & rộng hơn */
+        font-size: 4rem;
+        /* Tăng nhẹ cỡ chữ trên màn hình máy tính cho đẹp */
+    }
+
+    .hero-couple-title .couple-ampersand {
+        font-size: 3.5rem;
+    }
+}
+
+/* ĐỊNH DẠNG KHỐI CHỮ CHÀO MỪNG Ở CUỐI THIỆP */
+.footer-welcome-section {
+    background-color: #faf8f5;
+    /* Nền kem dịu nhẹ tách biệt với phần profile trắng */
+    border-top: 1px dashed #e2d1b5;
+    padding: 45px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #bc9c6c;
+    /* Tông màu vàng gold trung tính nhã nhặn */
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.footer-welcome-section {
+    background-color: #faf8f5;
+    /* Màu nền kem nhã nhặn */
+    padding: 50px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #bc9c6c;
+    /* Tông màu vàng gold trầm */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* THANH NGANG CÁCH ĐIỆU MÀU VÀNG */
+.fancy-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+    /* Độ rộng của toàn bộ thanh ngang */
+    margin: 0 auto;
+}
+
+.fancy-divider .divider-line {
+    flex: 1;
+    height: 1px;
+    /* Hiệu ứng dải màu mờ dần về hai đầu tạo nét mềm mại, cách điệu */
+    background: linear-gradient(to var(--direction, right), transparent, #d4af37);
+}
+
+/* Đảo chiều gradient cho thanh bên phải */
+.fancy-divider .divider-line:last-child {
+    background: linear-gradient(to left, transparent, #d4af37);
+}
+
+.fancy-divider .divider-icon {
+    color: #d4af37;
+    /* Màu vàng Gold rực rỡ */
+    font-size: 14px;
+    padding: 0 10px;
+    /* Khoảng cách chữ/icon ở giữa với 2 thanh ngang */
+    display: inline-block;
+    transform: scale(1.2);
+}
